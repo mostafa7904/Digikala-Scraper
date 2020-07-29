@@ -1,5 +1,6 @@
 # Digikala Scraper
 A puppeteer app to scrap digikala and see how much you've spent
+
 Change the index.js file and put in your information to login to digikala
 
 index.js file:
