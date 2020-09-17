@@ -6,7 +6,7 @@ async function enNumber(input) {
     input = input.replace(/۲/g, "2");
     input = input.replace(/۳/g, "3");
     input = input.replace(/۴/g, "4");
-    input = input.replace(/۵/g, "5");
+    input = input.replace(/۵/g);
     input = input.replace(/۶/g, "6");
     input = input.replace(/۷/g, "7");
     input = input.replace(/۸/g, "8");
