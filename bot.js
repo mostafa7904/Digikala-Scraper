@@ -14,13 +14,14 @@ async function enNumber(input) {
     input = input.replace(/۰/g, "0");
     return input;
   } catch (e) {
-    console.log(e);
+    console.log("There was an error in enNumber");
+    console.error(e);
   }
 }
-async function crawl(user, pass) {
+async function crawl(user, pass, headless = false) {
   try {
     const browser = await puppeteer.launch({
-      headless: false,
+      headless,
     });
     const page = await browser.newPage();
     await page.goto(
@@ -57,10 +58,34 @@ async function crawl(user, pass) {
       elements.push(...a);
     }
     const all = elements.reduce((per, cur) => per + cur);
-    console.log(all);
+    console.log(await prettyPrint(all));
     await browser.close();
   } catch (e) {
-    console.log(e);
+    console.log("There was an error in crawl");
+    console.error(e);
+  }
+}
+
+async function prettyPrint(number) {
+  try {
+    let str = number.toString();
+    str = str
+      .split("")
+      .reverse()
+      .join("")
+      .split(/(.{3})/)
+      .filter((o) => o)
+      .map((s) => s.split("").reverse().join(""))
+      .reverse()
+      .join();
+
+    return `You've spent ${str} toman on Digikala.
+    \n 
+    Reprot issues here: https://github.com/mostafa7904/Digikala-Scraper/issues/new
+    `;
+  } catch (e) {
+    console.log("There was an error in prettyPrint");
+    console.error(e);
   }
 }
 
