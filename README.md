@@ -8,11 +8,11 @@ In `index.js` file:
 
 `await bot.crawl("email", "pass"); //put in your info`
 
-You can also set the headless option which will stop puppeteer to open a chrome window. It's false by default meaning a chrome window runs.
+You can also set the headless option which will stop puppeteer from opening chrome. It's false by default meaning a chrome window will open.
 
 `await bot.crawl("email", "pass" , true); `
 
-before running the project run `npm i` in your command line
+before running make sure you have the latest node installed on your computer then run `npm i` in your command line.
 
 Installing chromium takes a while so be patiant.
 
