@@ -1,18 +1,10 @@
 const puppeteer = require("puppeteer");
 async function enNumber(input) {
   try {
+    const farsiDigits = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"];
     input = input.split(",").join("");
-    input = input.replace(/۱/g, "1");
-    input = input.replace(/۲/g, "2");
-    input = input.replace(/۳/g, "3");
-    input = input.replace(/۴/g, "4");
-    input = input.replace(/۵/g, "5");
-    input = input.replace(/۶/g, "6");
-    input = input.replace(/۷/g, "7");
-    input = input.replace(/۸/g, "8");
-    input = input.replace(/۹/g, "9");
-    input = input.replace(/۰/g, "0");
-    return input;
+
+   return input.toString().replace(/[0-9]/g, (x) => farsiDigits[x]);
   } catch (e) {
     console.log("There was an error in enNumber");
     console.error(e);
